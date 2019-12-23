@@ -14,8 +14,12 @@ export default class PDF2Pic {
     compression: "jpeg"
   }
 
-  constructor(options = {}) {
+  constructor(options = {}, gmAppPath) {
     this.options = { ...PDF2Pic.defaultOptions, ...options }
+    
+    if(gmAppPath) {
+      gm.subClass({appPath: gmAppPath});
+    }
   }
 
   /**
